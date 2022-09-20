@@ -32,7 +32,7 @@ def registerRobot():
     addressStr = 'localhost:8765'
     while i < 10 and not isRegistered:
         print('initiating2')
-        r = requests.post('http://localhost:3000/rest/registerrobot' + '/' + addressStr)
+        r = requests.post('http://192.168.86.116:3000/rest/registerrobot' + '/' + addressStr)
         if r.status_code == 200 or r.status_code == 201:
             print(r.status_code, 'Success')
             isRegistered = True
