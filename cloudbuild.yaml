@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://github.com/odegay/rr-raspberryprocessor.git']
-- name: 'gcr.io/gsutil'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args: ['gsutil', 'cp', './src/client/robotprocessor.py', 'gs://remote-robot/robotprocessor.py']  
 
 #steps:
