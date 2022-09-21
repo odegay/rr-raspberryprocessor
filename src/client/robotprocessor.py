@@ -19,9 +19,9 @@ if (not isArduinoConnected):
 
 if (not isArduinoConnected):
     try:
-        arduino = serial.Serial(port='/dev/ttyAMA0', baudrate=115200, timeout=.1)
+        arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
         isArduinoConnected = True
-        print ('Connected to Arduino on /dev/ttyAMA0')
+        print ('Connected to Arduino on /dev/ttyACM0')
     except serial.serialutil.SerialException:
         print ('Arduino not connected on Raspberry /dev/ttyACM0')
 
