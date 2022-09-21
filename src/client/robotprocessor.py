@@ -23,7 +23,7 @@ if (not isArduinoConnected):
         isArduinoConnected = True
         print ('Connected to Arduino on /dev/ttyAMA0')
     except serial.serialutil.SerialException:
-        print ('Arduino not connected on Raspberry /dev/ttyAMA0')
+        print ('Arduino not connected on Raspberry /dev/ttyACM0')
 
 
 def registerRobot():
