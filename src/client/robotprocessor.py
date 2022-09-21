@@ -29,7 +29,7 @@ if (not isArduinoConnected):
 def registerRobot():
     i = 2
     isRegistered = False
-    addressStr = 'localhost:8765'
+    addressStr = '192.168.86.24:8765'
     while i < 10 and not isRegistered:
         print('initiating2')
         r = requests.post('http://192.168.86.116:3000/rest/registerrobot' + '/' + addressStr)
