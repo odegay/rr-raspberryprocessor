@@ -1,5 +1,5 @@
 import asyncio
-# import aiohttp for requirements.txt: aiohttp==3.8.1
+import aiohttp 
 import time
 import socketio
 import requests
