@@ -29,10 +29,14 @@ if (not isArduinoConnected):
 def registerRobot():
     i = 2
     isRegistered = False
-    addressStr = '192.168.86.24:8765'
+    addressStr = 'rr-rpi-proc:8765'
     while i < 10 and not isRegistered:
         print('initiating2')
+        # DEV 
+        r = requests.post('rr-main-serv:3000/rest/registerrobot' + '/' + addressStr)
+        # PRODTODO
         r = requests.post('http://192.168.86.116:3000/rest/registerrobot' + '/' + addressStr)
+        # PRODTODO
         if r.status_code == 200 or r.status_code == 201:
             print(r.status_code, 'Success')
             isRegistered = True
@@ -78,11 +82,11 @@ async def start_server():
     
     while not isConnected: 
         try:
-            await sio.connect('http://192.168.86.116:3000')
+            await sio.connect('rr-main-serv:3000')
             isConnected = True
         #except BaseException as err:
         except socketio.exceptions.ConnectionError as err:            
-            print('error connecting to 192.168.86.116:3000')   
+            print('error connecting to rr-main-serv:3000')   
             time.sleep(3)
 
     registerRobot()
