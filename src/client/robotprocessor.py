@@ -81,6 +81,10 @@ async def start_server():
 
     isConnected = False
     
+    print('DEBUG: Registering a robot')   
+    registerRobot()
+    print('DEBUG: Registration is done robot')   
+    
     while not isConnected: 
         try:
             print('DEBUG: Connecting to the main server process')   

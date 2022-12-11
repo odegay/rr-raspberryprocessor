@@ -8,4 +8,4 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE 8765
 
-CMD [ "python3", "robotprocessor.py", "--host=0.0.0.0"]
+CMD [ "python3", "-u", "robotprocessor.py", "--host=0.0.0.0"]
