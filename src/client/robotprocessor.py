@@ -34,7 +34,7 @@ def registerRobot():
     while i < 10 and not isRegistered:
         print('initiating2')
         # DEV         
-        r = requests.post('rr-main-serv:3000/rest/registerrobot' + '/' + addressStr)
+        r = requests.post('http://rr-main-serv:3000/rest/registerrobot' + '/' + addressStr)
         # PRODTODO
         #r = requests.post('http://192.168.86.116:3000/rest/registerrobot' + '/' + addressStr)
         # PRODTODO
@@ -88,7 +88,7 @@ async def start_server():
     while not isConnected: 
         try:
             print('DEBUG: Connecting to the main server process')   
-            await sio.connect('rr-main-serv:3000')
+            await sio.connect('http://rr-main-serv:3000')
             isConnected = True
             print('DEBUG: Succsessfully connected')   
         #except BaseException as err:
