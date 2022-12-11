@@ -30,12 +30,13 @@ def registerRobot():
     i = 2
     isRegistered = False
     addressStr = 'rr-rpi-proc:8765'
+    print('DEBUG: registering a robot')   
     while i < 10 and not isRegistered:
         print('initiating2')
-        # DEV 
+        # DEV         
         r = requests.post('rr-main-serv:3000/rest/registerrobot' + '/' + addressStr)
         # PRODTODO
-        r = requests.post('http://192.168.86.116:3000/rest/registerrobot' + '/' + addressStr)
+        #r = requests.post('http://192.168.86.116:3000/rest/registerrobot' + '/' + addressStr)
         # PRODTODO
         if r.status_code == 200 or r.status_code == 201:
             print(r.status_code, 'Success')
@@ -82,8 +83,10 @@ async def start_server():
     
     while not isConnected: 
         try:
+            print('DEBUG: Connecting to the main server process')   
             await sio.connect('rr-main-serv:3000')
             isConnected = True
+            print('DEBUG: Succsessfully connected')   
         #except BaseException as err:
         except socketio.exceptions.ConnectionError as err:            
             print('error connecting to rr-main-serv:3000')   
@@ -93,6 +96,7 @@ async def start_server():
     await sio.wait()
 
 if __name__ == '__main__':
+    print('DEBUG: Initiating process')   
     loop.run_until_complete(start_server())
 
 #async def main():
