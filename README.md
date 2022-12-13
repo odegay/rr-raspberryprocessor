@@ -5,4 +5,8 @@
 ## Docker
 docker build --no-cache -f Dockerfile_core -t rr-rpi-proc-core
 
-docker build --no-cache . -t rr-rpi-proc
+## DEV
+docker build --no-cache -f Dockerfile_dev . -t rr-rpi-proc
+
+## PROD
+docker build --no-cache -f Dockerfile_dev . -t rr-rpi-proc
